@@ -70,8 +70,10 @@ body,
 }
 
 .timer-label {
+  font-size: 18px;
+  font-weight: bold;
   text-align: center;
-  font-size: 24px;
+  text-transform: uppercase;
 }
 
 .play-reset-container {

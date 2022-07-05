@@ -1,3 +1,4 @@
+import React from "react";
 import { PomClock } from "./components/PomClock";
 import "./styles/App.css";
 

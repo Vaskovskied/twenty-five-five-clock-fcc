@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import NumBtn from "./NumBtn";
 import PlayPauseBtn from "./PlayPauseBtn";
 import ResetBtn from "./ResetBtn";
@@ -11,8 +11,31 @@ export function PomClock() {
   const [sessionLength, setSessionLength] = useState(25);
   const [breakLength, setBreakLength] = useState(5);
   const [timerStatus, setTimerStatus] = useState("session"); // "session", "break"
-  // const [isPlaying, setPlay] = useState(false);
   const [timerIntervalId, setTimerIntervalId] = useState(null);
+  const beep = useRef();
+
+  useLayoutEffect(() => {
+    if (timeLeft < 0) {
+      if (timerStatus === "session") {
+        setTimerStatus(() => "break");
+        setTimeLeft(() => breakLength * 60);
+        beep.current.currentTime = 0;
+        beep.current.play();
+      } else {
+        setTimerStatus(() => "session");
+        setTimeLeft(() => sessionLength * 60);
+        beep.current.currentTime = 0;
+        beep.current.play();
+      }
+    }
+  }, [
+    timeLeft,
+    breakLength,
+    sessionLength,
+    timerStatus,
+    setTimerStatus,
+    setTimeLeft,
+  ]);
 
   return (
     <pomClockContext.Provider
@@ -27,6 +50,7 @@ export function PomClock() {
         setSessionLength,
         timerIntervalId,
         setTimerIntervalId,
+        beep,
       }}
     >
       <div className="pom-clock-container">
@@ -49,6 +73,12 @@ export function PomClock() {
           />
         </div>
       </div>
+      <audio
+        id="beep"
+        preload="auto"
+        ref={beep}
+        src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"
+      />
     </pomClockContext.Provider>
   );
 }

@@ -9,9 +9,12 @@ function ResetBtn() {
     setSessionLength,
     timerIntervalId,
     setTimerIntervalId,
+    beep,
   } = React.useContext(pomClockContext);
 
   const onClickHandler = () => {
+    beep.current.currentTime = 0;
+    beep.current.pause();
     clearInterval(timerIntervalId);
     setTimerIntervalId(null);
     setTimeLeft(1500);
