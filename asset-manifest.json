@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/twenty-five-five-clock-fcc/static/css/main.8fd7b8b9.css",
+    "main.css": "/twenty-five-five-clock-fcc/static/css/main.9a0f862f.css",
     "main.js": "/twenty-five-five-clock-fcc/static/js/main.ddd7a692.js",
     "index.html": "/twenty-five-five-clock-fcc/index.html",
-    "main.8fd7b8b9.css.map": "/twenty-five-five-clock-fcc/static/css/main.8fd7b8b9.css.map",
+    "main.9a0f862f.css.map": "/twenty-five-five-clock-fcc/static/css/main.9a0f862f.css.map",
     "main.ddd7a692.js.map": "/twenty-five-five-clock-fcc/static/js/main.ddd7a692.js.map"
   },
   "entrypoints": [
-    "static/css/main.8fd7b8b9.css",
+    "static/css/main.9a0f862f.css",
     "static/js/main.ddd7a692.js"
   ]
 }
