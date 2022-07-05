@@ -2,23 +2,23 @@ import React from "react";
 import { pomClockContext } from "./PomClock";
 
 function NumBtn({ timeLength, setLength, type }) {
-  const { timerIntervalId, setTimerIntervalId } =
+  const { timerIntervalId, setTimeLeft, timerStatus } =
     React.useContext(pomClockContext);
   const encrement = () => {
     if (!timerIntervalId && timeLength < 60) {
       setLength(timeLength + 1);
-      // if (timerStatus === type) {
-      //   setTimeLeft(timeLength * 60 + 60);
-      // }
+      if (timerStatus === type) {
+        setTimeLeft(timeLength * 60 + 60);
+      }
     }
   };
 
   const decrement = () => {
     if (!timerIntervalId && timeLength > 1) {
       setLength(timeLength - 1);
-      // if (timerStatus === type) {
-      //   setTimeLeft(timeLength * 60 - 60);
-      // }
+      if (timerStatus === type) {
+        setTimeLeft(timeLength * 60 - 60);
+      }
     }
   };
 

@@ -4,7 +4,6 @@ import { pomClockContext } from "./PomClock";
 function ResetBtn() {
   const {
     setTimeLeft,
-    setPlay,
     setTimerStatus,
     setBreakLength,
     setSessionLength,
@@ -15,7 +14,6 @@ function ResetBtn() {
   const onClickHandler = () => {
     clearInterval(timerIntervalId);
     setTimerIntervalId(null);
-    setPlay(false);
     setTimeLeft(1500);
     setBreakLength(5);
     setSessionLength(25);

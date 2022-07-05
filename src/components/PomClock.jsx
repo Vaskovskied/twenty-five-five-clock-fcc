@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import NumBtn from "./NumBtn";
 import PlayPauseBtn from "./PlayPauseBtn";
 import ResetBtn from "./ResetBtn";
@@ -11,35 +11,8 @@ export function PomClock() {
   const [sessionLength, setSessionLength] = useState(25);
   const [breakLength, setBreakLength] = useState(5);
   const [timerStatus, setTimerStatus] = useState("session"); // "session", "break"
-  const [isPlaying, setPlay] = useState(false);
+  // const [isPlaying, setPlay] = useState(false);
   const [timerIntervalId, setTimerIntervalId] = useState(null);
-
-  useEffect(() => {
-    if (timeLeft === 0) {
-      if (timerStatus === "session") {
-        setTimeLeft(breakLength * 60);
-        setTimerStatus("break");
-      }
-      if (timerStatus === "break") {
-        setTimeLeft(sessionLength * 60);
-        setTimerStatus("session");
-      }
-    }
-
-    // return () => {
-    //   second;
-    // };
-  }, [timeLeft]);
-
-  useEffect(() => {
-    if (timerStatus === "break") {
-      setTimeLeft(breakLength * 60);
-    }
-  }, [breakLength, timerStatus]);
-
-  useEffect(() => {
-    if (timerStatus === "session") setTimeLeft(sessionLength * 60);
-  }, [sessionLength, timerStatus]);
 
   return (
     <pomClockContext.Provider
@@ -48,8 +21,6 @@ export function PomClock() {
         setTimeLeft,
         timerStatus,
         setTimerStatus,
-        isPlaying,
-        setPlay,
         sessionLength,
         breakLength,
         setBreakLength,

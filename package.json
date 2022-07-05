@@ -2,7 +2,7 @@
   "name": "twenty-five-five-clock-fcc",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": " https://vaskovskied.github.io/twenty-five-five-clock-fcc/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
