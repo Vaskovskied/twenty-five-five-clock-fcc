@@ -19,6 +19,10 @@
   direction: ltr;
 }
 
+#fcc_test_suite_wrapper {
+  display: none;
+}
+
 button:focus {
   outline: none;
 }
@@ -171,4 +175,10 @@ body,
   font-size: 36px;
   height: 100%;
   min-width: 60px;
+}
+
+@media screen and (max-width: 280px) {
+  * {
+    transform: scale(0.95);
+  }
 }
